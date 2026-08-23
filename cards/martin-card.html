@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Eight Piggies — Martin MacDonald business card</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+<style>
+@page { size: 3.75in 2.25in; margin: 0; }
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{margin:0;background:#fff}
+:root{
+  --sand:#F6EEDF; --paper:#FDFAF3; --ink:#26201B;
+  --ink-60:rgba(38,32,27,.68); --coral:#EA6247; --gold:#EDB13E; --sea:#1C6E9B;
+  --accent:#EA6247;
+}
+.sheet{
+  width:3.75in;height:2.25in;position:relative;overflow:hidden;
+  font-family:"Instrument Sans",sans-serif;color:var(--ink);
+}
+.sheet.front{background:var(--sand);page-break-after:always}
+.sheet.back{background:var(--ink)}
+.grain{position:absolute;inset:0;z-index:50;pointer-events:none;
+  background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/></filter><rect width="180" height="180" filter="url(%23n)" opacity="0.55"/></svg>');
+  opacity:.055;mix-blend-mode:multiply;
+}
+.back .grain{opacity:.09;mix-blend-mode:screen}
+
+/* ————— front ————— */
+.sun{
+  position:absolute;top:-52px;right:-52px;width:150px;height:150px;border-radius:50%;
+  background:var(--gold);border:2.5px solid var(--ink);box-shadow:4px 5px 0 var(--ink);z-index:1;
+}
+.sun::before{
+  content:"";position:absolute;inset:-24px;border-radius:50%;
+  background:repeating-conic-gradient(var(--gold) 0 4deg,transparent 4deg 15deg);
+  -webkit-mask:radial-gradient(circle,transparent 60%,#000 61% 78%,transparent 79%);
+  mask:radial-gradient(circle,transparent 60%,#000 61% 78%,transparent 79%);
+  opacity:.5;
+}
+.frame{position:absolute;inset:14px;border:2.5px solid var(--ink);border-radius:12px;z-index:2}
+.brand{position:absolute;left:28px;top:26px;display:flex;align-items:center;gap:7px;z-index:3}
+.brand .mark{width:24px;height:24px}
+.brand .word{font-family:"Fraunces",serif;font-weight:800;font-size:12.5px;letter-spacing:-.01em;white-space:nowrap}
+.brand .word em{font-style:italic;font-weight:500}
+.nameblock{position:absolute;left:28px;top:74px;z-index:3}
+.name{font-family:"Fraunces",serif;font-weight:800;font-size:23px;letter-spacing:-.02em;line-height:1;font-variation-settings:"opsz" 90}
+.role{margin-top:6px;font-weight:700;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.contacts{position:absolute;left:28px;bottom:26px;z-index:3}
+.email{font-weight:700;font-size:10.5px;letter-spacing:.01em}
+.more{margin-top:4px;font-size:8.5px;color:var(--ink-60);font-weight:600}
+.sticker{position:absolute;right:16px;bottom:14px;width:40px;height:36px;z-index:4;transform:rotate(8deg)}
+.squig{position:absolute;left:28px;top:118px;width:80px;height:8px;z-index:3}
+
+/* ————— back ————— */
+.bframe{position:absolute;inset:14px;border:2.5px solid var(--gold);border-radius:12px;z-index:2}
+.bword{position:absolute;top:44px;left:0;right:0;text-align:center;z-index:3;
+  font-weight:700;font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+.herd{position:absolute;top:78px;left:0;right:0;display:flex;justify-content:center;gap:9px;z-index:3}
+.herd svg{width:21px;height:19px}
+.herd span{display:block;transform:rotate(-4deg)}
+.herd span:nth-child(2n){transform:rotate(5deg)}
+.quote{position:absolute;top:120px;left:0;right:0;text-align:center;z-index:3;
+  font-family:"Fraunces",serif;font-style:italic;font-weight:550;font-size:15.5px;
+  color:var(--sand);font-variation-settings:"opsz" 60;letter-spacing:-.01em}
+.bsite{position:absolute;bottom:32px;left:0;right:0;text-align:center;z-index:3;
+  font-weight:700;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pig" viewBox="0 0 64 56">
+    <path d="M13 20 L8 6 L24 13 Z" fill="#FDFAF3"/>
+    <path d="M51 20 L56 6 L40 13 Z" fill="#FDFAF3"/>
+    <rect x="4" y="14" width="56" height="38" rx="19" fill="#FDFAF3"/>
+    <ellipse cx="32" cy="35" rx="12" ry="9" fill="currentColor" opacity=".55"/>
+    <circle cx="27.5" cy="35" r="2.1" fill="#26201B"/>
+    <circle cx="36.5" cy="35" r="2.1" fill="#26201B"/>
+    <circle cx="22" cy="26" r="2.8" fill="#26201B"/>
+    <circle cx="42" cy="26" r="2.8" fill="#26201B"/>
+  </symbol>
+</svg>
+
+<!-- FRONT -->
+<div class="sheet front" id="front">
+  <div class="sun"></div>
+  <div class="frame"></div>
+  <div class="brand">
+    <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+      <rect width="64" height="64" rx="14" fill="#EA6247"/>
+      <g transform="translate(0,4)">
+        <path d="M14 18 L10 6 L24 12 Z" fill="#FDFAF3"/>
+        <path d="M50 18 L54 6 L40 12 Z" fill="#FDFAF3"/>
+        <rect x="8" y="14" width="48" height="34" rx="17" fill="#FDFAF3"/>
+        <ellipse cx="32" cy="33" rx="11" ry="8" fill="#EA6247"/>
+        <circle cx="28" cy="33" r="2" fill="#26201B"/>
+        <circle cx="36" cy="33" r="2" fill="#26201B"/>
+        <circle cx="23" cy="24" r="2.6" fill="#26201B"/>
+        <circle cx="41" cy="24" r="2.6" fill="#26201B"/>
+      </g>
+    </svg>
+    <span class="word">Eight <em>Piggies</em></span>
+  </div>
+
+  <div class="nameblock">
+    <div class="name">Martin MacDonald</div>
+    <div class="role">Co-founder — The Growth</div>
+  </div>
+
+  <svg class="squig" viewBox="0 0 80 8" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 4 Q 5 0 10 4 T 20 4 T 30 4 T 40 4 T 50 4 T 60 4 T 70 4 T 80 4" stroke="#EA6247" stroke-width="2" fill="none"/>
+  </svg>
+
+  <div class="contacts">
+    <div class="email">hello@eightpiggies.com</div>
+    <div class="more">@searchmartin &nbsp;·&nbsp; martinmacdonald.com</div>
+  </div>
+
+  <svg class="sticker" style="color:#EA6247" aria-hidden="true"><use href="#pig"/></svg>
+  <div class="grain"></div>
+</div>
+
+<!-- BACK -->
+<div class="sheet back" id="back">
+  <div class="bframe"></div>
+  <div class="bword">Eight Piggies</div>
+  <div class="herd">
+    <span style="color:#EA6247"><svg><use href="#pig"/></svg></span>
+    <span style="color:#1C6E9B"><svg><use href="#pig"/></svg></span>
+    <span style="color:#EDB13E"><svg><use href="#pig"/></svg></span>
+    <span style="color:#2E7A54"><svg><use href="#pig"/></svg></span>
+    <span style="color:#BF3F2A"><svg><use href="#pig"/></svg></span>
+    <span style="color:#8A6BB8"><svg><use href="#pig"/></svg></span>
+    <span style="color:#1C6E9B"><svg><use href="#pig"/></svg></span>
+    <span style="color:#EA6247"><svg><use href="#pig"/></svg></span>
+  </div>
+  <div class="quote">This little piggy went to production.</div>
+  <div class="bsite">eightpiggies.com — Barbados, 246</div>
+  <div class="grain"></div>
+</div>
+
+</body>
+</html>
