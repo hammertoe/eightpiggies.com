@@ -444,6 +444,7 @@ section{position:relative}
   width:104px;height:104px;flex:none;border:2.5px solid var(--ink);border-radius:50%;
   box-shadow:var(--shadow-sm);overflow:hidden;background:var(--blush);
 }
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
 .founder h3{font-family:var(--display);font-weight:800;font-size:1.65rem;letter-spacing:-.02em;line-height:1.1;font-variation-settings:"opsz" 90}
 .founder .role{
   font-weight:700;font-size:.8rem;letter-spacing:.13em;text-transform:uppercase;color:var(--coral-deep);
@@ -821,21 +822,8 @@ footer{background:var(--ink);color:var(--sand);padding:3.5rem 0 2.2rem}
     <div class="founders">
       <article class="founder matt" data-reveal>
         <div class="founder-head">
-          <div class="avatar" aria-hidden="true">
-            <svg viewBox="0 0 104 104" role="img" aria-label="Illustrated portrait of Matt Hamilton">
-              <rect width="104" height="104" fill="#DCEBF3"/>
-              <circle cx="52" cy="44" r="26" fill="#E8B98F"/>
-              <path d="M26 40 a26 26 0 0 1 52 0 v-6 a26 26 0 0 0 -52 0 Z" fill="#4A3A2E"/>
-              <path d="M30 36 Q52 16 74 36 Q66 24 52 24 Q38 24 30 36 Z" fill="#4A3A2E"/>
-              <rect x="38" y="40" width="12" height="10" rx="4" fill="none" stroke="#26201B" stroke-width="2.4"/>
-              <rect x="54" y="40" width="12" height="10" rx="4" fill="none" stroke="#26201B" stroke-width="2.4"/>
-              <line x1="50" y1="45" x2="54" y2="45" stroke="#26201B" stroke-width="2.4"/>
-              <circle cx="44" cy="45" r="1.8" fill="#26201B"/>
-              <circle cx="60" cy="45" r="1.8" fill="#26201B"/>
-              <path d="M42 60 Q52 66 62 60 L62 70 Q52 76 42 70 Z" fill="#5C4437"/>
-              <path d="M20 104 Q22 74 52 72 Q82 74 84 104 Z" fill="#1C6E9B"/>
-              <path d="M44 78 h16 v26 h-16 Z" fill="#FDFAF3" opacity=".25"/>
-            </svg>
+          <div class="avatar">
+            <img src="matt-headshot.jpg" alt="Photo of Matt Hamilton" width="208" height="208" loading="lazy" decoding="async">
           </div>
           <div>
             <h3>Matt Hamilton</h3>
@@ -863,19 +851,8 @@ footer{background:var(--ink);color:var(--sand);padding:3.5rem 0 2.2rem}
 
       <article class="founder martin" data-reveal style="--d:.1s">
         <div class="founder-head">
-          <div class="avatar" aria-hidden="true">
-            <svg viewBox="0 0 104 104" role="img" aria-label="Illustrated portrait of Martin MacDonald">
-              <rect width="104" height="104" fill="#F3DDD2"/>
-              <circle cx="52" cy="44" r="26" fill="#E7B08C"/>
-              <path d="M26 104 Q28 74 52 72 Q76 74 78 104 Z" fill="#E4573D"/>
-              <path d="M40 42 a5 5 0 0 1 10 0 a5 5 0 0 1 -10 0 M56 42 a5 5 0 0 1 10 0 a5 5 0 0 1 -10 0" fill="none" stroke="#26201B" stroke-width="2.6"/>
-              <path d="M50 41 l2 0 M54 41 l2 0" stroke="#26201B" stroke-width="2.2"/>
-              <circle cx="45" cy="41" r="1.8" fill="#26201B"/>
-              <circle cx="61" cy="41" r="1.8" fill="#26201B"/>
-              <path d="M45 58 Q52 64 59 58" stroke="#26201B" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-              <path d="M30 34 q22 -8 44 0 l0 -4 q-22 -9 -44 0 Z" fill="#3A2E26"/>
-              <path d="M44 74 h16 v30 h-16 Z" fill="#FDFAF3" opacity=".25"/>
-            </svg>
+          <div class="avatar">
+            <img src="martin-headshot.jpg" alt="Photo of Martin MacDonald" width="208" height="208" loading="lazy" decoding="async">
           </div>
           <div>
             <h3>Martin MacDonald</h3>

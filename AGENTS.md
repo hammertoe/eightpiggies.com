@@ -36,7 +36,7 @@ Positioning: "Live systems, not slide decks." The name riffs on the nursery rhym
 
 ## Hard requirements
 
-1. **The site stays a single HTML file.** No external CSS/JS files, no frameworks, no images required to render (SVGs inline). Total load < 50KB excluding fonts.
+1. **The site stays a single HTML file.** No external CSS/JS files, no frameworks, no images required to render except the two founder headshots (`matt-headshot.jpg`, `martin-headshot.jpg`, 208×208, face-centred crops). Everything else stays inline SVG. Total load < 60KB excluding fonts.
 2. **Lighthouse must stay at 100** for Accessibility, Best Practices, SEO (and Agentic Browsing) on desktop *and* mobile. Verify before committing:
    ```
    python3 -m http.server 8741
