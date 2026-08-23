@@ -1,0 +1,40 @@
+# Eight Piggies
+
+> Eight Piggies is a two-founder tech and AI consultancy based in Barbados, founded by Matt Hamilton and Martin MacDonald. We design, build and ship national-scale AI systems, enterprise technical SEO, and the engineering to make them real. Live systems, not slide decks.
+
+Founded: 2026
+Location: Barbados (AST, UTC−4) — working with clients worldwide
+Founders: Matt Hamilton (engineering, applied AI, civic tech) and Martin MacDonald (enterprise SEO, product strategy, GEO)
+Contact: hello@eightpiggies.com
+
+## Services
+
+- Go-to-market & growth: product-led SEO and launch strategy from the operator who ran search for Expedia and Orbitz
+- Embedded engineering: senior engineers inside your team, on retainer — your repo, your standup, your roadmap
+- Applied AI & agents: LLMs, RAG, agents and search that survive contact with real users, proven at national scale
+- The honest audit: technical SEO, AI-readiness and stack audits — including telling you what not to build
+- Migrations & launches: risk-managed launches with QA, monitoring and rollback plans
+- Enterprise technical SEO: architecture, crawl control, indexation and internal linking at Fortune 500 scale
+- Developer relations: docs, demos, talks and community built by ex-IBM, Ripple, Protocol Labs and Arbitrum advocates
+- Civic tech & public infrastructure: government services, transparency tools and digital public infrastructure
+
+## Founders
+
+- [Matt Hamilton](https://dharach.com/): co-founder. ex-IBM, Ripple, Protocol Labs, Arbitrum Foundation. Builder of national-scale civic AI systems in Barbados. 2025 BLP Innovation Award. Also at [hammertoe.io](https://hammertoe.io/) and [@HammerToe](https://twitter.com/HammerToe)
+- [Martin MacDonald](https://martinmacdonald.com/): co-founder. Led search for Expedia, Orbitz and Omnicom. Founder of [MOGmedia](https://mog.media/) and [Metricular](https://metricular.net/). Also built [SendMy.ai](https://sendmy.ai/) and [CuratedContent](https://curatedcontent.org/). Runs BarbadosSEO. [@searchmartin](https://twitter.com/searchmartin)
+
+## Live systems (proof of work)
+
+- [Yuh Hear Dem](https://yuhheardem.com/) — AI-powered search over Barbados parliament with source-linked provenance
+- [Yuh Gettin' Tru?](https://yuhgettintru.com/) — island-wide product search across 100+ Barbados retailers
+- [We Outside 246](https://weoutside246.com/) — cultural events discovery for Barbados
+- [alpha.gov.bb](https://alpha.gov.bb/) — Government of Barbados digital services portal
+- [Untangle / Talk to Tali](https://untangleapp.ai/) — shame-free ADHD task manager in WhatsApp
+- [Metricular](https://metricular.net/) — SEO & GEO platform: 83M+ URLs crawled, 350+ issue types
+- [SendMy.ai](https://sendmy.ai/) — AI meeting attendance with visible, consent-first bots
+- [CuratedContent](https://curatedcontent.org/) — turning distributed media into structured, evidence-backed knowledge
+
+## Links
+
+- [Home](https://eightpiggies.com/)
+- Email: hello@eightpiggies.com
