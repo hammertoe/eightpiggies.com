@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eight Piggies — Tech &amp; AI consulting from Barbados</title>
+<meta name="description" content="Eight Piggies is a two-founder tech & AI consultancy in Barbados. National-scale AI systems, enterprise search strategy, and the engineering to make them real. Live systems, not slide decks.">
+<meta property="og:title" content="Eight Piggies — Tech & AI consulting from Barbados">
+<meta property="og:description" content="Two founders. Eight piggies. Zero slide decks. AI, engineering and search strategy — proven at national scale in Barbados, built for anywhere.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eightpiggies.com">
+<meta name="theme-color" content="#F6EEDF">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%23E4573D"/><g transform="translate(0,4)"><path d="M14 18 L10 6 L24 12 Z" fill="%23FDFAF3"/><path d="M50 18 L54 6 L40 12 Z" fill="%23FDFAF3"/><rect x="8" y="14" width="48" height="34" rx="17" fill="%23FDFAF3"/><ellipse cx="32" cy="33" rx="11" ry="8" fill="%23E4573D"/><circle cx="28" cy="33" r="2" fill="%2326201B"/><circle cx="36" cy="33" r="2" fill="%2326201B"/><circle cx="23" cy="24" r="2.6" fill="%2326201B"/><circle cx="41" cy="24" r="2.6" fill="%2326201B"/></g></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Eight Piggies",
+  "url": "https://eightpiggies.com",
+  "description": "Two-founder tech and AI consultancy based in Barbados. Applied AI, engineering, and enterprise search strategy.",
+  "address": { "@type": "PostalAddress", "addressLocality": "Barbados", "addressCountry": "BB" },
+  "founder": [
+    { "@type": "Person", "name": "Matt Hamilton", "sameAs": ["https://dharach.com/", "https://hammertoe.io/", "https://twitter.com/HammerToe"] },
+    { "@type": "Person", "name": "Martin MacDonald", "sameAs": ["https://martinmacdonald.com/", "https://mog.media/", "https://twitter.com/searchmartin"] }
+  ]
+}
+</script>
+<style>
+/* ————————————————— tokens ————————————————— */
+:root{
+  --sand:#F6EEDF;
+  --paper:#FDFAF3;
+  --ink:#26201B;
+  --ink-60:rgba(38,32,27,.68);
+  --ink-15:rgba(38,32,27,.15);
+  --coral:#EA6247;
+  --coral-deep:#BF3F2A;
+  --blush:#F3C8BF;
+  --gold:#EDB13E;
+  --sea:#1C6E9B;
+  --palm:#2E7A54;
+  --shadow:5px 6px 0 var(--ink);
+  --shadow-sm:3px 4px 0 var(--ink);
+  --r-lg:22px;
+  --r-md:16px;
+  --display:"Fraunces",Georgia,serif;
+  --body:"Instrument Sans","Helvetica Neue",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--sand);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* paper grain */
+body::after{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;
+  background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/></filter><rect width="180" height="180" filter="url(%23n)" opacity="0.55"/></svg>');
+  opacity:.055;mix-blend-mode:multiply;
+}
+::selection{background:var(--coral);color:var(--paper)}
+a{color:inherit}
+img,svg{display:block;max-width:100%}
+:focus-visible{outline:3px dashed var(--coral);outline-offset:3px;border-radius:4px}
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:10001;
+  background:var(--ink);color:var(--paper);padding:.6rem 1.2rem;border-radius:0 0 12px 0;
+}
+.skip:focus{left:0}
+
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(1.1rem,4vw,2.5rem)}
+
+/* ————————————————— nav ————————————————— */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(246,238,223,.88);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:2px solid transparent;
+  transition:border-color .3s;
+}
+.nav.scrolled{border-bottom-color:var(--ink)}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:.8rem 0;
+}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.brand .mark{width:42px;height:42px;flex:none}
+.brand .word{
+  font-family:var(--display);font-weight:800;font-size:1.28rem;letter-spacing:-.02em;font-variation-settings:"opsz" 40;
+  white-space:nowrap;
+}
+.brand .word em{font-style:italic;font-weight:500}
+.nav-links{display:flex;align-items:center;gap:1.6rem;list-style:none}
+.nav-links a{
+  text-decoration:none;font-weight:600;font-size:.94rem;position:relative;
+}
+.nav-links a:not(.btn)::after{
+  content:"";position:absolute;left:0;bottom:-4px;width:100%;height:3px;
+  background:var(--coral);transform:scaleX(0);transform-origin:left;
+  transition:transform .25s cubic-bezier(.68,-.55,.27,1.55);border-radius:2px;
+}
+.nav-links a:not(.btn):hover::after{transform:scaleX(1)}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--body);font-weight:700;font-size:.95rem;text-decoration:none;
+  padding:.62rem 1.3rem;border-radius:999px;border:2px solid var(--ink);
+  background:var(--paper);color:var(--ink);box-shadow:var(--shadow-sm);
+  transition:transform .18s cubic-bezier(.34,1.56,.64,1),box-shadow .18s;
+  cursor:pointer;line-height:1.2;
+}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:5px 6px 0 var(--ink)}
+.btn:active{transform:translate(1px,2px);box-shadow:1px 2px 0 var(--ink)}
+.btn.primary{background:var(--coral)}
+.btn.big{padding:.9rem 1.9rem;font-size:1.05rem;box-shadow:var(--shadow)}
+.btn.big:hover{box-shadow:7px 8px 0 var(--ink)}
+@media(max-width:760px){.nav-links{gap:1rem}.nav-links li:not(:last-child){display:none}}
+
+/* ————————————————— hero ————————————————— */
+.hero{position:relative;padding:clamp(3.5rem,8vw,6.5rem) 0 clamp(3rem,6vw,5rem);overflow:hidden}
+.sun{
+  position:absolute;top:-140px;right:-140px;width:460px;height:460px;border-radius:50%;
+  background:var(--gold);border:2.5px solid var(--ink);
+  box-shadow:6px 8px 0 var(--ink);opacity:.9;
+}
+.sun::before{
+  content:"";position:absolute;inset:-34px;border-radius:50%;
+  background:repeating-conic-gradient(var(--gold) 0 4deg,transparent 4deg 15deg);
+  -webkit-mask:radial-gradient(circle,transparent 62%,#000 63% 78%,transparent 79%);
+  mask:radial-gradient(circle,transparent 62%,#000 63% 78%,transparent 79%);
+  opacity:.5;
+}
+.float-pig{position:absolute;z-index:1}
+.float-pig .pig-svg{width:110px;height:110px;filter:drop-shadow(4px 5px 0 var(--ink))}
+.fp-1{top:16%;right:14%;transform:rotate(10deg);animation:bob 5.5s ease-in-out infinite}
+.fp-2{bottom:6%;right:4%;transform:rotate(-12deg);animation:bob 6.5s ease-in-out -2s infinite}
+.fp-2 .pig-svg{width:82px;height:82px}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -16px}}
+@media(max-width:900px){.fp-1{right:-20px;width:90px}.fp-2{display:none}}
+
+.kicker{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;
+  border:2px solid var(--ink);background:var(--paper);border-radius:999px;
+  padding:.45rem 1.05rem;box-shadow:var(--shadow-sm);margin-bottom:1.7rem;
+}
+.kicker .dot{width:9px;height:9px;border-radius:50%;background:var(--palm);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.55}}
+
+.hero h1{
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(2.7rem,7.2vw,5.6rem);
+  line-height:1.02;letter-spacing:-.025em;
+  max-width:12ch;
+  font-variation-settings:"opsz" 144;
+  margin-bottom:1.6rem;
+  text-wrap:balance;
+}
+.hero h1 .w1{font-style:italic;font-weight:500;color:var(--coral-deep)}
+.hero h1 .w2{
+  display:inline-block;position:relative;white-space:nowrap;
+  background:var(--gold);padding:0 .18em;border-radius:.18em;
+  box-shadow:3px 4px 0 var(--ink);transform:rotate(-1.6deg);
+  font-style:italic;
+}
+.hero .lede{
+  max-width:56ch;font-size:clamp(1.02rem,1.5vw,1.18rem);color:var(--ink-60);
+  margin-bottom:2.2rem;
+}
+.hero .lede strong{color:var(--ink)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:3.2rem}
+.arrow{display:inline-block;transition:transform .2s}
+.btn:hover .arrow{transform:translateX(4px)}
+.btn:hover .arrow-down{transform:translateY(4px)}
+
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border:2.5px solid var(--ink);border-radius:var(--r-lg);background:var(--paper);
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.stat{padding:1.3rem 1.5rem;border-left:2.5px solid var(--ink)}
+.stat:first-child{border-left:none}
+.stat b{
+  display:block;font-family:var(--display);font-weight:800;
+  font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.1;letter-spacing:-.02em;
+}
+.stat b em{font-style:italic;color:var(--coral-deep)}
+.stat span{font-size:.86rem;color:var(--ink-60);font-weight:500;line-height:1.35;display:block;margin-top:.15rem}
+@media(max-width:820px){
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:none}
+  .stat:nth-child(n+3){border-top:2.5px solid var(--ink)}
+}
+
+/* ————————————————— marquee ————————————————— */
+.marquee{
+  border-top:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);
+  background:var(--coral-deep);color:var(--paper);
+  overflow:hidden;padding:.8rem 0;position:relative;
+}
+.marquee-track{
+  display:flex;gap:3rem;width:max-content;
+  animation:scroll 30s linear infinite;
+}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{
+  font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:.03em;
+  display:flex;align-items:center;gap:3rem;white-space:nowrap;font-variation-settings:"opsz" 60;
+}
+.marquee-track .trot{font-size:1rem;letter-spacing:.2em}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ————————————————— sections ————————————————— */
+section{position:relative}
+.section-pad{padding:clamp(4rem,9vw,7rem) 0}
+.eyebrow{
+  font-weight:700;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--coral-deep);margin-bottom:.9rem;display:flex;align-items:center;gap:.7rem;
+}
+.eyebrow::before{content:"";width:34px;height:3px;background:var(--coral);border-radius:2px}
+.h2{
+  font-family:var(--display);font-weight:650;letter-spacing:-.02em;line-height:1.05;
+  font-size:clamp(2rem,4.6vw,3.3rem);font-variation-settings:"opsz" 144;
+  margin-bottom:1rem;text-wrap:balance;
+}
+.h2 em{font-style:italic;font-weight:500}
+.section-sub{max-width:60ch;color:var(--ink-60);font-size:1.06rem;margin-bottom:3rem}
+.section-sub strong{color:var(--ink)}
+
+/* services */
+.piggies{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+@media(max-width:1020px){.piggies{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.piggies{grid-template-columns:1fr}}
+.pig-card{
+  background:var(--paper);border:2.5px solid var(--ink);border-radius:var(--r-md);
+  padding:1.5rem 1.4rem 1.6rem;box-shadow:var(--shadow-sm);position:relative;
+  display:flex;flex-direction:column;gap:.5rem;
+  transition:transform .22s cubic-bezier(.34,1.56,.64,1),box-shadow .22s;
+}
+.pig-card:hover{transform:translate(-3px,-3px) rotate(-.5deg);box-shadow:7px 9px 0 var(--ink)}
+.pig-card .num{
+  position:absolute;top:.9rem;right:1rem;
+  font-family:var(--display);font-style:italic;font-weight:500;
+  font-size:1rem;color:var(--ink-60);
+}
+.pig-card .pig-face{width:64px;height:64px;margin-bottom:.4rem;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.pig-card:hover .pig-face{transform:rotate(-10deg) scale(1.12)}
+.pig-card .rhyme{
+  font-family:var(--display);font-style:italic;font-weight:550;font-size:1.02rem;
+  color:var(--ink-60);line-height:1.3;font-variation-settings:"opsz" 30;
+}
+.pig-card h3{
+  font-family:var(--display);font-weight:750;font-size:1.32rem;letter-spacing:-.01em;
+  line-height:1.15;font-variation-settings:"opsz" 60;
+}
+.pig-card p{font-size:.93rem;color:var(--ink-60);line-height:1.55}
+
+/* squiggle divider */
+.squiggle{display:block;width:100%;height:26px;margin:0 auto;opacity:.35}
+
+/* proof */
+.proof{background:var(--ink);color:var(--sand)}
+.proof .eyebrow{color:var(--gold)}
+.proof .eyebrow::before{background:var(--gold)}
+.proof .section-sub{color:rgba(246,238,223,.68)}
+.proof .section-sub strong{color:var(--sand)}
+.herd{
+  display:flex;flex-wrap:wrap;gap:.9rem 1.1rem;margin-bottom:4rem;
+}
+.herd span{
+  font-family:var(--display);font-weight:600;font-size:clamp(1.15rem,2.4vw,1.7rem);
+  font-variation-settings:"opsz" 90;letter-spacing:-.01em;
+  border:2px solid rgba(246,238,223,.35);border-radius:999px;padding:.5rem 1.5rem;
+  transition:border-color .25s,background .25s,transform .25s;
+  cursor:default;
+}
+.herd span:hover{border-color:var(--gold);background:rgba(237,177,62,.12);transform:rotate(-1.5deg) scale(1.04)}
+.live-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+@media(max-width:900px){.live-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.live-grid{grid-template-columns:1fr}}
+.live-card{
+  display:block;text-decoration:none;color:var(--sand);
+  background:rgba(246,238,223,.05);border:2px solid rgba(246,238,223,.3);
+  border-radius:var(--r-md);padding:1.4rem 1.5rem;
+  transition:transform .2s,border-color .2s,background .2s;
+  position:relative;overflow:hidden;
+}
+.live-card:hover{transform:translateY(-4px);border-color:var(--gold);background:rgba(237,177,62,.09)}
+.live-card .tag{
+  display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.55rem;
+}
+.live-card .tag::before{content:"● ";animation:pulse 2.4s infinite}
+.live-card h3{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:-.01em;font-variation-settings:"opsz" 60;margin-bottom:.3rem}
+.live-card p{font-size:.92rem;color:rgba(246,238,223,.78);line-height:1.5}
+.live-card .go{
+  display:inline-block;margin-top:.8rem;font-weight:700;font-size:.88rem;
+  color:var(--gold);text-decoration:underline;text-underline-offset:4px;
+}
+
+/* founders */
+.founders{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+@media(max-width:880px){.founders{grid-template-columns:1fr}}
+.founder{
+  background:var(--paper);border:2.5px solid var(--ink);border-radius:var(--r-lg);
+  box-shadow:var(--shadow);padding:clamp(1.6rem,3vw,2.4rem);position:relative;overflow:hidden;
+}
+.founder::before{
+  content:"";position:absolute;top:-46px;right:-46px;width:150px;height:150px;border-radius:50%;
+  opacity:.16;
+}
+.founder.matt::before{background:var(--sea)}
+.founder.martin::before{background:var(--coral)}
+.founder-head{display:flex;gap:1.3rem;align-items:center;margin-bottom:1.2rem}
+.avatar{
+  width:104px;height:104px;flex:none;border:2.5px solid var(--ink);border-radius:50%;
+  box-shadow:var(--shadow-sm);overflow:hidden;background:var(--blush);
+}
+.founder h3{font-family:var(--display);font-weight:800;font-size:1.65rem;letter-spacing:-.02em;line-height:1.1;font-variation-settings:"opsz" 90}
+.founder .role{
+  font-weight:700;font-size:.8rem;letter-spacing:.13em;text-transform:uppercase;color:var(--coral-deep);
+  display:block;margin-top:.3rem;
+}
+.founder .bio{color:var(--ink-60);font-size:.97rem;margin-bottom:1.2rem}
+.founder .bio strong{color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.4rem}
+.chips span{
+  font-size:.78rem;font-weight:700;border:1.5px solid var(--ink);border-radius:999px;
+  padding:.26rem .8rem;background:var(--sand);
+}
+.founder-links{display:flex;flex-wrap:wrap;gap:.55rem 1.2rem;font-size:.9rem;font-weight:600}
+.founder-links a{
+  text-decoration:none;color:var(--sea);position:relative;padding-bottom:1px;
+}
+.founder-links a::after{
+  content:"↗";font-size:.75em;margin-left:2px;transition:transform .2s;display:inline-block;
+}
+.founder-links a:hover::after{transform:translate(2px,-2px)}
+.founder .award{
+  display:inline-flex;align-items:center;gap:.5rem;font-size:.84rem;font-weight:600;
+  background:var(--gold);border:2px solid var(--ink);border-radius:10px;padding:.35rem .8rem;
+  box-shadow:2px 3px 0 var(--ink);margin-bottom:1.2rem;
+}
+
+/* contact */
+.contact{background:var(--coral-deep);color:var(--paper);border-top:2.5px solid var(--ink)}
+.contact .eyebrow{color:var(--paper)}
+.contact .eyebrow::before{background:var(--sand)}
+.contact .h2{max-width:16ch}
+.contact-inner{
+  display:grid;grid-template-columns:1.35fr 1fr;gap:3rem;align-items:end;
+}
+@media(max-width:880px){.contact-inner{grid-template-columns:1fr}}
+.contact .big-mail{
+  font-family:var(--display);font-weight:700;font-variation-settings:"opsz" 90;
+  font-size:clamp(1.35rem,3.2vw,2.2rem);letter-spacing:-.01em;
+  text-decoration:none;color:var(--paper);
+  display:inline-block;border-bottom:3px solid var(--sand);padding-bottom:.2rem;
+  transition:transform .2s cubic-bezier(.34,1.56,.64,1);
+}
+.contact .big-mail:hover{transform:rotate(-1deg) scale(1.03)}
+.contact .sub{color:rgba(253,250,243,.95);max-width:52ch;margin:1.4rem 0 2rem;font-size:1.04rem}
+.contact .sub strong{color:var(--paper)}
+.contact .btn{background:var(--sand);color:var(--ink);border-color:var(--ink)}
+.clock-card{
+  background:var(--paper);color:var(--ink);border:2.5px solid var(--ink);border-radius:var(--r-md);
+  box-shadow:var(--shadow-sm);padding:1.4rem 1.6rem;
+}
+.clock-card .lbl{font-weight:700;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-60)}
+.clock-card .time{
+  font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,4vw,3rem);
+  letter-spacing:-.02em;line-height:1.1;font-variation-settings:"opsz" 144;font-variant-numeric:tabular-nums;
+}
+.clock-card .where{font-size:.9rem;color:var(--ink-60)}
+
+/* footer */
+footer{background:var(--ink);color:var(--sand);padding:3.5rem 0 2.2rem}
+.pig-row{display:flex;justify-content:center;gap:clamp(.4rem,2vw,1.2rem);margin-bottom:2.4rem;flex-wrap:wrap}
+.pig-row button{
+  background:none;border:none;cursor:pointer;padding:6px;border-radius:12px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1);
+}
+.pig-row button:hover{transform:translateY(-8px) rotate(-8deg)}
+.pig-row .pig-svg{width:clamp(38px,6vw,54px);height:auto}
+.foot-word{
+  text-align:center;font-family:var(--display);font-weight:800;letter-spacing:-.02em;
+  font-size:clamp(2.4rem,8vw,5rem);line-height:1;font-variation-settings:"opsz" 144;
+  color:rgba(246,238,223,.95);
+}
+.foot-word em{font-style:italic;font-weight:500;color:var(--gold)}
+.foot-meta{
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  margin-top:2.4rem;padding-top:1.6rem;border-top:1.5px solid rgba(246,238,223,.2);
+  font-size:.85rem;color:rgba(246,238,223,.55);
+}
+.foot-meta a{color:rgba(246,238,223,.75);text-decoration:none}
+.foot-meta a:hover{color:var(--gold)}
+
+/* ————————————————— reveal on scroll ————————————————— */
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1);transition-delay:var(--d,0s)}
+[data-reveal].in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  [data-reveal]{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* oink bubble */
+.oink{
+  position:fixed;z-index:10000;font-family:var(--display);font-style:italic;font-weight:700;
+  background:var(--paper);border:2px solid var(--ink);border-radius:999px;padding:.3rem .9rem;
+  box-shadow:var(--shadow-sm);pointer-events:none;font-size:1rem;
+  animation:oinkPop 1.1s cubic-bezier(.22,1,.36,1) forwards;
+}
+@keyframes oinkPop{
+  0%{opacity:0;transform:translate(-50%,0) scale(.5) rotate(-6deg)}
+  18%{opacity:1;transform:translate(-50%,-18px) scale(1.1) rotate(3deg)}
+  70%{opacity:1;transform:translate(-50%,-30px) scale(1)}
+  100%{opacity:0;transform:translate(-50%,-52px) scale(.9)}
+}
+</style>
+</head>
+<body>
+
+<!-- shared pig symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pig" viewBox="0 0 64 56">
+    <path d="M13 20 L8 6 L24 13 Z" fill="var(--paper)"/>
+    <path d="M51 20 L56 6 L40 13 Z" fill="var(--paper)"/>
+    <rect x="4" y="14" width="56" height="38" rx="19" fill="var(--paper)"/>
+    <ellipse cx="32" cy="35" rx="12" ry="9" fill="currentColor" opacity=".55"/>
+    <circle cx="27.5" cy="35" r="2.1" fill="var(--ink)"/>
+    <circle cx="36.5" cy="35" r="2.1" fill="var(--ink)"/>
+    <circle cx="22" cy="26" r="2.8" fill="var(--ink)"/>
+    <circle cx="42" cy="26" r="2.8" fill="var(--ink)"/>
+    <path d="M22 43 Q32 48 42 43" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round" opacity=".35"/>
+  </symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" id="nav" aria-label="Main">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Eight Piggies — home">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#E4573D"/>
+        <g transform="translate(0,4)">
+          <path d="M14 18 L10 6 L24 12 Z" fill="#FDFAF3"/>
+          <path d="M50 18 L54 6 L40 12 Z" fill="#FDFAF3"/>
+          <rect x="8" y="14" width="48" height="34" rx="17" fill="#FDFAF3"/>
+          <ellipse cx="32" cy="33" rx="11" ry="8" fill="#E4573D"/>
+          <circle cx="28" cy="33" r="2" fill="#26201B"/>
+          <circle cx="36" cy="33" r="2" fill="#26201B"/>
+          <circle cx="23" cy="24" r="2.6" fill="#26201B"/>
+          <circle cx="41" cy="24" r="2.6" fill="#26201B"/>
+        </g>
+      </svg>
+      <span class="word">Eight <em>Piggies</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#piggies">The piggies</a></li>
+      <li><a href="#proof">Track record</a></li>
+      <li><a href="#founders">Founders</a></li>
+      <li><a class="btn primary" href="mailto:hello@eightpiggies.com">Say hello</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ———— hero ———— -->
+<header class="hero" id="top">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="float-pig fp-1" aria-hidden="true"><svg class="pig-svg" style="color:var(--coral)"><use href="#pig"/></svg></div>
+  <div class="float-pig fp-2" aria-hidden="true"><svg class="pig-svg" style="color:var(--sea)"><use href="#pig"/></svg></div>
+
+  <div class="wrap">
+    <p class="kicker" data-reveal><span class="dot" aria-hidden="true"></span>Tech &amp; AI consulting · Barbados, 246</p>
+    <h1 data-reveal style="--d:.08s">This little piggy <span class="w1">went to</span> <span class="w2">production.</span></h1>
+    <p class="lede" data-reveal style="--d:.16s">
+      Eight Piggies is a two-founder consultancy built in Barbados by
+      <strong>Matt Hamilton</strong> and <strong>Martin MacDonald</strong>.
+      We design, build and ship real systems — national-scale AI, enterprise
+      search strategy, and the engineering to make it all stick.
+      <strong>Live systems, not slide decks.</strong>
+    </p>
+    <div class="hero-ctas" data-reveal style="--d:.24s">
+      <a class="btn primary big" href="mailto:hello@eightpiggies.com?subject=Let%27s%20build%20something%20real">Start a project <span class="arrow">→</span></a>
+      <a class="btn big" href="#piggies">Meet the piggies <span class="arrow arrow-down">↓</span></a>
+    </div>
+
+    <div class="stats" data-reveal style="--d:.32s">
+      <div class="stat"><b>5</b><span>national-scale systems live in production</span></div>
+      <div class="stat"><b>25<em>+</em></b><span>years leading enterprise search &amp; SEO</span></div>
+      <div class="stat"><b>340<em>k+</em></b><span>products searchable across 100+ Barbados stores</span></div>
+      <div class="stat"><b>2<em>·</em>8</b><span>founders you work with directly · piggies that ship</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ———— marquee ———— -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>THIS LITTLE PIGGY <b class="trot">🐽</b> WENT TO MARKET <b class="trot">🐽</b> SHIPPED PRODUCTION AI <b class="trot">🐽</b> STAYED HOME <b class="trot">🐽</b> EMBEDDED WITH YOUR TEAM <b class="trot">🐽</b> HAD ROAST BEEF <b class="trot">🐽</b> BUILT RAG &amp; AGENTS <b class="trot">🐽</b> CRIED WEE-WEE-WEE <b class="trot">🐽</b> ALL THE WAY HOME <b class="trot">🐽</b></span>
+    <span>THIS LITTLE PIGGY <b class="trot">🐽</b> WENT TO MARKET <b class="trot">🐽</b> SHIPPED PRODUCTION AI <b class="trot">🐽</b> STAYED HOME <b class="trot">🐽</b> EMBEDDED WITH YOUR TEAM <b class="trot">🐽</b> HAD ROAST BEEF <b class="trot">🐽</b> BUILT RAG &amp; AGENTS <b class="trot">🐽</b> CRIED WEE-WEE-WEE <b class="trot">🐽</b> ALL THE WAY HOME <b class="trot">🐽</b></span>
+  </div>
+</div>
+
+<!-- ———— the eight piggies (services) ———— -->
+<section class="section-pad" id="piggies">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>What we do</p>
+    <h2 class="h2" data-reveal style="--d:.08s">Eight little piggies.<br><em>One serious consultancy.</em></h2>
+    <p class="section-sub" data-reveal style="--d:.16s">
+      You know the rhyme. Every engagement is one of our eight piggies going
+      <strong>exactly where it should</strong> — to market, into your repo, or all the way home.
+    </p>
+
+    <div class="piggies">
+      <div class="pig-card" data-reveal style="--d:0s">
+        <span class="num">i</span>
+        <svg class="pig-face" style="color:var(--coral)" aria-hidden="true"><use href="#pig"/></svg>
+        <p class="rhyme">…went to market</p>
+        <h3>Go-to-market &amp; growth</h3>
+        <p>Product-led SEO and launch strategy from the operator who ran search for Expedia and Orbitz. Positioning, distribution, and a roadmap your team can actually ship.</p>
+      </div>
+      <div class="pig-card" data-reveal style="--d:.06s">
+        <span class="num">ii</span>
+        <svg class="pig-face" style="color:var(--sea)" aria-hidden="true"><use href="#pig"/></svg>
+        <p class="rhyme">…stayed home</p>
+        <h3>Embedded engineering</h3>
+        <p>Senior engineers inside your team, on retainer. Your repo, your standup, your roadmap. No agencies, no hand-offs, no theatre.</p>
+      </div>
+      <div class="pig-card" data-reveal style="--d:.12s">
+        <span class="num">iii</span>
+        <svg class="pig-face" style="color:var(--palm)" aria-hidden="true"><use href="#pig"/></svg>
+        <p class="rhyme">…had roast beef</p>
+        <h3>Applied AI &amp; agents</h3>
+        <p>LLMs, RAG, agents and search that survive contact with real users. Transcription, entity graphs and vector search — proven at national scale, in production.</p>
+      </div>
+      <div class="pig-card" data-reveal style="--d:.18s">
+        <span class="num">iv</span>
+        <svg class="pig-face" style="color:var(--gold)" aria-hidden="true"><use href="#pig"/></svg>
+        <p class="rhyme">…had none</p>
+        <h3>The honest audit</h3>
+        <p>Sometimes the right answer is “none”. We audit your stack, your search presence or your AI plans — tell you what not to build, then what to build instead.</p>
+      </div>
+      <div class="pig-card" data-reveal style="--d:0s">
+        <span class="num">v</span>
+        <svg class="pig-face" style="color:var(--coral-deep)" aria-hidden="true"><use href="#pig"/></svg>
+        <p class="rhyme">…cried “wee-wee-wee”</p>
+        <h3>Migrations &amp; launches</h3>
+        <p>Risk-managed launches with QA, monitoring and rollback plans. When something cries for help, we’re already all the way home.</p>
+      </div>
+      <div class="pig-card" data-reveal style="--d:.06s">
+        <span class="num">vi</span>
+        <svg class="pig-face" style="color:#8A6BB8" aria-hidden="true"><use href="#pig"/></svg>
+        <p class="rhyme">…built the sty</p>
+        <h3>Enterprise technical SEO</h3>
+        <p>Architecture, crawl control, indexation and internal linking at Fortune 500 scale — with the tooling and measurement to prove what worked.</p>
+      </div>
+      <div class="pig-card" data-reveal style="--d:.12s">
+        <span class="num">vii</span>
+        <svg class="pig-face" style="color:var(--sea)" aria-hidden="true"><use href="#pig"/></svg>
+        <p class="rhyme">…learned to talk</p>
+        <h3>Developer relations</h3>
+        <p>Docs, demos, talks and community. Years as the voice of the developer at IBM, Ripple, Protocol Labs and Arbitrum — we make technical audiences care.</p>
+      </div>
+      <div class="pig-card" data-reveal style="--d:.18s">
+        <span class="num">viii</span>
+        <svg class="pig-face" style="color:var(--palm)" aria-hidden="true"><use href="#pig"/></svg>
+        <p class="rhyme">…served the island</p>
+        <h3>Civic tech &amp; public infrastructure</h3>
+        <p>Government services, transparency tools and digital public infrastructure. We helped launch alpha.gov.bb — we know how public systems ship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="squiggle" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 13 Q 30 0 60 13 T 120 13 T 180 13 T 240 13 T 300 13 T 360 13 T 420 13 T 480 13 T 540 13 T 600 13 T 660 13 T 720 13 T 780 13 T 840 13 T 900 13 T 960 13 T 1020 13 T 1080 13 T 1140 13 T 1200 13" stroke="var(--ink)" stroke-width="2.5" fill="none"/>
+</svg>
+
+<!-- ———— proof ———— -->
+<section class="proof section-pad" id="proof">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>Track record</p>
+    <h2 class="h2" data-reveal style="--d:.08s">Where the herd <em>has been.</em></h2>
+    <p class="section-sub" data-reveal style="--d:.16s">
+      Between us we’ve held senior roles across <strong>big tech, blockchain, travel and government</strong> — and everything below isn’t history. It’s running, right now, on this island.
+    </p>
+
+    <div class="herd" data-reveal>
+      <span>IBM</span><span>Ripple</span><span>Protocol Labs</span><span>Arbitrum Foundation</span>
+      <span>Expedia</span><span>Orbitz</span><span>Omnicom</span><span>GovTech Barbados</span>
+    </div>
+
+    <div class="live-grid">
+      <a class="live-card" href="https://yuhheardem.com" target="_blank" rel="noopener" data-reveal style="--d:0s">
+        <span class="tag">Live</span>
+        <h3>Yuh Hear Dem</h3>
+        <p>AI-powered search over Barbados parliament — every claim linked back to the original video evidence. 200+ debates, 105k+ sentences.</p>
+        <span class="go">yuhheardem.com</span>
+      </a>
+      <a class="live-card" href="https://yuhgettintru.com" target="_blank" rel="noopener" data-reveal style="--d:.06s">
+        <span class="tag">Live</span>
+        <h3>Yuh Gettin’ Tru?</h3>
+        <p>Island-wide product search across 100+ retailers and 1,800+ Instagram vendors. Vector search + LLM reranking, ~1,000 searches a day.</p>
+        <span class="go">yuhgettintru.com</span>
+      </a>
+      <a class="live-card" href="https://weoutside246.com" target="_blank" rel="noopener" data-reveal style="--d:.12s">
+        <span class="tag">Live</span>
+        <h3>We Outside 246</h3>
+        <p>Cultural events discovery for Barbados — 40,000+ social posts scanned, 6,500+ posters detected, 1,600+ events and counting.</p>
+        <span class="go">weoutside246.com</span>
+      </a>
+      <a class="live-card" href="https://alpha.gov.bb" target="_blank" rel="noopener" data-reveal style="--d:0s">
+        <span class="tag">Live</span>
+        <h3>alpha.gov.bb</h3>
+        <p>Government services as a service you can actually use. Matt was part of the launch team with GovTech Barbados.</p>
+        <span class="go">alpha.gov.bb</span>
+      </a>
+      <a class="live-card" href="https://untangleapp.ai" target="_blank" rel="noopener" data-reveal style="--d:.06s">
+        <span class="tag">Live</span>
+        <h3>Untangle / Talk to Tali</h3>
+        <p>A shame-free, context-aware task manager for ADHD brains, living entirely in WhatsApp. No guilt mechanics, ever.</p>
+        <span class="go">untangleapp.ai</span>
+      </a>
+      <a class="live-card" href="https://mog.media" target="_blank" rel="noopener" data-reveal style="--d:.12s">
+        <span class="tag">Live</span>
+        <h3>MOGmedia &amp; Metricular</h3>
+        <p>Martin’s product-led SEO consultancy and the first AI-driven SEO crawler — running enterprise engagements since 2017.</p>
+        <span class="go">mog.media</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ———— founders ———— -->
+<section class="section-pad" id="founders">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>Who you actually get</p>
+    <h2 class="h2" data-reveal style="--d:.08s">Two head piggies. <em>No middle-piggies.</em></h2>
+    <p class="section-sub" data-reveal style="--d:.16s">
+      Eight Piggies is deliberately small. When you hire us, <strong>you get us</strong> — the people whose names are on the work.
+    </p>
+
+    <div class="founders">
+      <article class="founder matt" data-reveal>
+        <div class="founder-head">
+          <div class="avatar" aria-hidden="true">
+            <svg viewBox="0 0 104 104" role="img" aria-label="Illustrated portrait of Matt Hamilton">
+              <rect width="104" height="104" fill="#DCEBF3"/>
+              <circle cx="52" cy="44" r="26" fill="#E8B98F"/>
+              <path d="M26 40 a26 26 0 0 1 52 0 v-6 a26 26 0 0 0 -52 0 Z" fill="#4A3A2E"/>
+              <path d="M30 36 Q52 16 74 36 Q66 24 52 24 Q38 24 30 36 Z" fill="#4A3A2E"/>
+              <rect x="38" y="40" width="12" height="10" rx="4" fill="none" stroke="#26201B" stroke-width="2.4"/>
+              <rect x="54" y="40" width="12" height="10" rx="4" fill="none" stroke="#26201B" stroke-width="2.4"/>
+              <line x1="50" y1="45" x2="54" y2="45" stroke="#26201B" stroke-width="2.4"/>
+              <circle cx="44" cy="45" r="1.8" fill="#26201B"/>
+              <circle cx="60" cy="45" r="1.8" fill="#26201B"/>
+              <path d="M42 60 Q52 66 62 60 L62 70 Q52 76 42 70 Z" fill="#5C4437"/>
+              <path d="M20 104 Q22 74 52 72 Q82 74 84 104 Z" fill="#1C6E9B"/>
+              <path d="M44 78 h16 v26 h-16 Z" fill="#FDFAF3" opacity=".25"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Matt Hamilton</h3>
+            <span class="role">Co-founder · The Builder</span>
+          </div>
+        </div>
+        <span class="award">🏆 2025 Innovation Award — Barbados</span>
+        <p class="bio">
+          Technologist and developer advocate turned island engineer.
+          <strong>ex-IBM, Ripple, Protocol Labs and the Arbitrum Foundation.</strong>
+          Since moving to Barbados in 2021 he’s been proving that a small island is the
+          best place to build big systems — parliamentary search, island-wide shopping
+          search, events discovery and gov-tech. All live. All national scale.
+        </p>
+        <div class="chips">
+          <span>Python</span><span>LLMs &amp; agents</span><span>Blockchain</span><span>Civic tech</span><span>DevRel</span>
+        </div>
+        <div class="founder-links">
+          <a href="https://dharach.com" target="_blank" rel="noopener">dharach.com</a>
+          <a href="https://hammertoe.io" target="_blank" rel="noopener">hammertoe.io</a>
+          <a href="https://twitter.com/HammerToe" target="_blank" rel="noopener">@HammerToe</a>
+          <a href="https://www.linkedin.com/in/matthamilton77/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </article>
+
+      <article class="founder martin" data-reveal style="--d:.1s">
+        <div class="founder-head">
+          <div class="avatar" aria-hidden="true">
+            <svg viewBox="0 0 104 104" role="img" aria-label="Illustrated portrait of Martin MacDonald">
+              <rect width="104" height="104" fill="#F3DDD2"/>
+              <circle cx="52" cy="44" r="26" fill="#E7B08C"/>
+              <path d="M26 104 Q28 74 52 72 Q76 74 78 104 Z" fill="#E4573D"/>
+              <path d="M40 42 a5 5 0 0 1 10 0 a5 5 0 0 1 -10 0 M56 42 a5 5 0 0 1 10 0 a5 5 0 0 1 -10 0" fill="none" stroke="#26201B" stroke-width="2.6"/>
+              <path d="M50 41 l2 0 M54 41 l2 0" stroke="#26201B" stroke-width="2.2"/>
+              <circle cx="45" cy="41" r="1.8" fill="#26201B"/>
+              <circle cx="61" cy="41" r="1.8" fill="#26201B"/>
+              <path d="M45 58 Q52 64 59 58" stroke="#26201B" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+              <path d="M30 34 q22 -8 44 0 l0 -4 q-22 -9 -44 0 Z" fill="#3A2E26"/>
+              <path d="M44 74 h16 v30 h-16 Z" fill="#FDFAF3" opacity=".25"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Martin MacDonald</h3>
+            <span class="role">Co-founder · The Growth</span>
+          </div>
+        </div>
+        <p class="bio" style="margin-top:.4rem">
+          Enterprise search operator since the early web.
+          <strong>Led SEO and marketing for Expedia, Orbitz and Omnicom</strong>, founded
+          MOGmedia in 2017 and launched the first AI-driven SEO crawler, Metricular.
+          Runs BarbadosSEO, the Caribbean’s largest search conference.
+          Occasional troublemaker.
+        </p>
+        <div class="chips">
+          <span>Technical SEO</span><span>Product strategy</span><span>Content systems</span><span>GEO / AI search</span><span>Measurement</span>
+        </div>
+        <div class="founder-links">
+          <a href="https://martinmacdonald.com" target="_blank" rel="noopener">martinmacdonald.com</a>
+          <a href="https://mog.media" target="_blank" rel="noopener">mog.media</a>
+          <a href="https://twitter.com/searchmartin" target="_blank" rel="noopener">@searchmartin</a>
+          <a href="https://www.linkedin.com/in/searchmartin" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ———— contact ———— -->
+<section class="contact section-pad" id="contact">
+  <div class="wrap contact-inner">
+    <div>
+      <p class="eyebrow" data-reveal>Start something</p>
+      <h2 class="h2" data-reveal style="--d:.08s">Got something that <em>ought to exist?</em></h2>
+      <p class="sub" data-reveal style="--d:.16s">
+        Tell us what you’re trying to ship — an AI product, a search problem,
+        a system your citizens or customers deserve. <strong>If we’re not the right
+        piggies, we’ll say so fast</strong> — and point you at better ones.
+      </p>
+      <a class="big-mail" href="mailto:hello@eightpiggies.com" data-reveal style="--d:.22s">hello@eightpiggies.com</a>
+    </div>
+    <div class="clock-card" data-reveal style="--d:.3s">
+      <p class="lbl">Right now in Bridgetown</p>
+      <p class="time" id="bbTime">—:—</p>
+      <p class="where">Barbados · AST (UTC−4) · We answer fast, island time not included.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ———— footer ———— -->
+<footer>
+  <div class="wrap">
+    <div class="pig-row" id="pigRow" aria-label="Eight piggies — click one to say hi">
+      <button aria-label="Piggy 1 — oink"><svg class="pig-svg" style="color:var(--coral)"><use href="#pig"/></svg></button>
+      <button aria-label="Piggy 2 — oink"><svg class="pig-svg" style="color:var(--sea)"><use href="#pig"/></svg></button>
+      <button aria-label="Piggy 3 — oink"><svg class="pig-svg" style="color:var(--gold)"><use href="#pig"/></svg></button>
+      <button aria-label="Piggy 4 — oink"><svg class="pig-svg" style="color:var(--palm)"><use href="#pig"/></svg></button>
+      <button aria-label="Piggy 5 — oink"><svg class="pig-svg" style="color:var(--coral-deep)"><use href="#pig"/></svg></button>
+      <button aria-label="Piggy 6 — oink"><svg class="pig-svg" style="color:#8A6BB8"><use href="#pig"/></svg></button>
+      <button aria-label="Piggy 7 — oink"><svg class="pig-svg" style="color:var(--sea)"><use href="#pig"/></svg></button>
+      <button aria-label="Piggy 8 — oink"><svg class="pig-svg" style="color:var(--coral)"><use href="#pig"/></svg></button>
+    </div>
+    <p class="foot-word">Eight <em>Piggies</em></p>
+    <div class="foot-meta">
+      <span>© 2026 Eight Piggies · Made in Barbados 🇧🇧 — the island that ships.</span>
+      <span><a href="mailto:hello@eightpiggies.com">hello@eightpiggies.com</a> · <a href="https://eightpiggies.com">eightpiggies.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* sticky nav border */
+  var nav = document.getElementById("nav");
+  var onScroll = function(){ nav.classList.toggle("scrolled", window.scrollY > 8); };
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  /* reveal on scroll */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, {threshold:.12, rootMargin:"0px 0px -40px 0px"});
+  document.querySelectorAll("[data-reveal]").forEach(function(el){ io.observe(el); });
+
+  /* Bridgetown clock (AST, UTC-4, no DST) */
+  var timeEl = document.getElementById("bbTime");
+  var fmt = new Intl.DateTimeFormat("en-US", {
+    timeZone:"America/Barbados", hour:"numeric", minute:"2-digit", hour12:true
+  });
+  var tick = function(){ timeEl.textContent = fmt.format(new Date()); };
+  tick(); setInterval(tick, 15000);
+
+  /* oink easter egg */
+  var OINKS = ["Oink!","Oink oink!","Wee wee wee!","Oink 🐽","Snort!","Oink, yes.","Squeal!","This little piggy says hi."];
+  var oinkN = 0;
+  document.getElementById("pigRow").addEventListener("click", function(ev){
+    var b = ev.target.closest("button"); if(!b) return;
+    var t = document.createElement("span");
+    t.className = "oink";
+    t.textContent = OINKS[oinkN++ % OINKS.length];
+    var r = b.getBoundingClientRect();
+    t.style.left = (r.left + r.width/2) + "px";
+    t.style.top = (r.top - 6) + "px";
+    document.body.appendChild(t);
+    setTimeout(function(){ t.remove(); }, 1200);
+  });
+})();
+</script>
+</body>
+</html>
