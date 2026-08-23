@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 96" width="840" height="192">
+  <title>Eight Piggies — horizontal lockup</title>
+  <defs>
+    <linearGradient id="fg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FDFAF3"/>
+      <stop offset="1" stop-color="#F6EEDF"/>
+    </linearGradient>
+  </defs>
+  <rect width="420" height="96" rx="20" fill="#26201B"/>
+  <g transform="translate(18,16) scale(1)">
+    <rect width="64" height="64" rx="14" fill="#EA6247"/>
+    <g transform="translate(0,4)">
+      <path d="M14 18 L10 6 L24 12 Z" fill="#FDFAF3"/>
+      <path d="M50 18 L54 6 L40 12 Z" fill="#FDFAF3"/>
+      <rect x="8" y="14" width="48" height="34" rx="17" fill="#FDFAF3"/>
+      <ellipse cx="32" cy="33" rx="11" ry="8" fill="#EA6247"/>
+      <circle cx="28" cy="33" r="2" fill="#26201B"/>
+      <circle cx="36" cy="33" r="2" fill="#26201B"/>
+      <circle cx="23" cy="24" r="2.6" fill="#26201B"/>
+      <circle cx="41" cy="24" r="2.6" fill="#26201B"/>
+    </g>
+  </g>
+  <text x="108" y="62" font-family="Fraunces, Georgia, serif" font-size="42" font-weight="800" letter-spacing="-1" fill="url(#fg)">Eight <tspan font-style="italic" font-weight="500" fill="#EDB13E">Piggies</tspan></text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512">
+  <title>Eight Piggies logo</title>
+  <rect width="64" height="64" rx="14" fill="#EA6247"/>
+  <g transform="translate(0,4)">
+    <path d="M14 18 L10 6 L24 12 Z" fill="#FDFAF3"/>
+    <path d="M50 18 L54 6 L40 12 Z" fill="#FDFAF3"/>
+    <rect x="8" y="14" width="48" height="34" rx="17" fill="#FDFAF3"/>
+    <ellipse cx="32" cy="33" rx="11" ry="8" fill="#EA6247"/>
+    <circle cx="28" cy="33" r="2" fill="#26201B"/>
+    <circle cx="36" cy="33" r="2" fill="#26201B"/>
+    <circle cx="23" cy="24" r="2.6" fill="#26201B"/>
+    <circle cx="41" cy="24" r="2.6" fill="#26201B"/>
+  </g>
+</svg>
