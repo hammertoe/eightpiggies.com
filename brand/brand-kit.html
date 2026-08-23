@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Eight Piggies — Brand Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ============ deck canvas ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --sand:#F6EEDF; --paper:#FDFAF3; --ink:#26201B;
+  --ink-60:rgba(38,32,27,.68); --ink-15:rgba(38,32,27,.15);
+  --coral:#EA6247; --coral-deep:#BF3F2A; --blush:#F3C8BF;
+  --gold:#EDB13E; --sea:#1C6E9B; --palm:#2E7A54; --grape:#8A6BB8;
+  --deck:#1B1713; --deck-line:rgba(246,238,223,.14);
+  --display:"Fraunces",Georgia,serif;
+  --body:"Instrument Sans","Helvetica Neue",sans-serif;
+  --mono:"JetBrains Mono",monospace;
+}
+body{background:var(--deck);font-family:var(--body);color:var(--ink)}
+@page{size:1600px 1000px;margin:0}
+
+.board{
+  width:1600px;height:1000px;position:relative;overflow:hidden;
+  padding:56px;page-break-after:always;
+  background:
+    radial-gradient(1200px 700px at 85% -10%, rgba(237,177,62,.05), transparent 60%),
+    var(--deck);
+  color:var(--sand);
+}
+.grain{position:absolute;inset:0;z-index:60;pointer-events:none;
+  background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/></filter><rect width="180" height="180" filter="url(%23n)" opacity="0.55"/></svg>');
+  opacity:.05;mix-blend-mode:screen;}
+
+/* deck chrome */
+.deckhead{position:absolute;top:34px;left:56px;right:56px;display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:rgba(246,238,223,.5)}
+.deckfoot{position:absolute;bottom:34px;left:56px;right:56px;display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(246,238,223,.38)}
+
+/* light panels */
+.panel{background:var(--sand);color:var(--ink);border-radius:20px;position:relative;overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.panel.dark{background:var(--ink);color:var(--sand)}
+.plabel{position:absolute;top:22px;left:26px;font-family:var(--mono);font-size:12px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ink-60);z-index:5}
+.panel.dark .plabel{color:rgba(246,238,223,.55)}
+
+/* board titles */
+.btitle{font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.btitle b{color:var(--coral)}
+
+/* ============ BOARD 1 — cover ============ */
+.cover{display:flex;flex-direction:column;justify-content:space-between;height:100%;padding-top:90px;padding-bottom:80px}
+.cover-center{display:flex;align-items:center;gap:80px;justify-content:center}
+.cover-tile{width:300px;height:300px;border-radius:64px;background:var(--coral);display:grid;place-items:center;flex:none;
+  box-shadow:10px 12px 0 rgba(0,0,0,.4)}
+.cover-name{font-family:var(--display);font-weight:800;font-size:118px;line-height:.95;letter-spacing:-.03em;font-variation-settings:"opsz" 144}
+.cover-name em{font-style:italic;font-weight:500;color:var(--gold)}
+.cover-sub{margin-top:26px;font-size:22px;color:rgba(246,238,223,.72);font-weight:500;max-width:560px;line-height:1.5}
+.cover-tag{display:inline-block;margin-top:30px;font-family:var(--display);font-style:italic;font-size:26px;color:var(--coral);
+  border:2px solid rgba(246,238,223,.25);border-radius:999px;padding:12px 28px}
+.cover-pigs{display:flex;gap:18px;justify-content:center}
+.cover-pigs svg{width:46px;height:42px;opacity:.92}
+
+/* ============ BOARD 2 — logo ============ */
+.logo-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:22px;margin-top:26px;height:770px}
+.logo-main{grid-row:1/3;display:grid;place-items:center}
+.logo-main .bigmark{width:300px;height:300px}
+.construction{display:grid;place-items:center}
+.construction .inner{position:relative;width:280px;height:280px}
+.construction .gridlines{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(28,110,155,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(28,110,155,.18) 1px,transparent 1px);
+  background-size:35px 35px;border-radius:50%;border:1.5px dashed var(--sea)}
+.clearspace{display:grid;place-items:center}
+.clearspace .cs{position:relative;padding:44px;border:1.5px dashed var(--coral-deep);border-radius:18px}
+.clearspace .cs::before{content:"x";position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:13px;color:var(--coral-deep)}
+.mono-variants{display:flex;align-items:center;justify-content:space-around}
+.mono-variants .v{display:grid;place-items:center;gap:12px}
+.mono-variants .chip{width:150px;height:150px;border-radius:32px;display:grid;place-items:center}
+.mono-variants small{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-60)}
+.panel.dark mono-variants small{color:rgba(246,238,223,.5)}
+.lockups{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px}
+.lockups .lw{font-family:var(--display);font-weight:800;font-size:44px;letter-spacing:-.02em}
+.lockups .lw em{font-style:italic;font-weight:500}
+.lockups .stack{display:flex;flex-direction:column;align-items:center;gap:10px}
+.lockups small{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,238,223,.5)}
+.minsize{display:flex;align-items:center;justify-content:space-around;gap:10px}
+
+/* ============ BOARD 3 — color ============ */
+.color-grid{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:1fr 1fr;gap:20px;margin-top:26px;height:700px}
+.swatch{border-radius:18px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:20px}
+.swatch .meta{font-family:var(--mono);font-size:12.5px;line-height:1.7;letter-spacing:.02em}
+.swatch .meta b{font-family:var(--body);font-size:17px;font-weight:700;letter-spacing:0;display:block;margin-bottom:4px}
+.ratio-bar{grid-column:1/6;display:flex;height:96px;border-radius:18px;overflow:hidden;border:2.5px solid rgba(246,238,223,.2)}
+.ratio-bar div{display:grid;place-items:center;font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.1em}
+.panel.sp{background:var(--sand)}
+
+/* ============ BOARD 4 — type ============ */
+.type-grid{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:auto 1fr;gap:22px;margin-top:26px;height:770px}
+.spec-display{padding:56px 48px 40px;display:flex;flex-direction:column}
+.spec-display .abc{font-family:var(--display);font-weight:600;font-size:56px;line-height:1.15;letter-spacing:-.01em;font-variation-settings:"opsz" 90}
+.spec-display .ital{font-family:var(--display);font-style:italic;font-weight:500;font-size:40px;color:var(--coral-deep);margin-top:16px;font-variation-settings:"opsz" 90}
+.spec-display .fname{margin-top:auto;padding-top:24px;display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--ink-15)}
+.spec-display .fname b{font-size:22px}
+.spec-display .fname span{font-family:var(--mono);font-size:12px;color:var(--ink-60);letter-spacing:.1em}
+.spec-body{padding:56px 48px 40px;display:flex;flex-direction:column}
+.spec-body .abc{font-size:37px;font-weight:500;line-height:1.35;letter-spacing:0}
+.spec-body .num{font-family:var(--mono);font-size:26px;margin-top:12px;color:var(--ink-60)}
+.hier{padding:40px 44px;display:flex;flex-direction:column;justify-content:center;gap:22px}
+.hier .row{display:flex;align-items:baseline;gap:22px}
+.hier .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-60);width:120px;flex:none}
+.hier h1{font-family:var(--display);font-weight:650;font-size:46px;letter-spacing:-.02em}
+.hier h2{font-family:var(--display);font-weight:650;font-size:30px}
+.hier .lede{font-size:17px;color:var(--ink-60);max-width:520px}
+.hier .body{font-size:15px;color:var(--ink-60);max-width:520px}
+.rules{padding:40px 44px;display:flex;flex-direction:column;justify-content:center;gap:14px;font-size:15.5px}
+.rules .r{display:flex;gap:14px;align-items:flex-start}
+.rules .n{font-family:var(--mono);font-size:12px;color:var(--coral-deep);border:1.5px solid var(--coral-deep);border-radius:6px;padding:2px 8px;flex:none;margin-top:2px}
+
+/* ============ BOARD 5 — voice & language ============ */
+.voice-grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:22px;margin-top:26px;height:770px}
+.principle{padding:40px 38px;display:flex;flex-direction:column}
+.principle .pn{font-family:var(--mono);font-size:13px;color:var(--coral);letter-spacing:.2em}
+.principle h3{font-family:var(--display);font-weight:750;font-size:34px;line-height:1.08;margin-top:14px;letter-spacing:-.015em}
+.principle h3 em{font-style:italic;font-weight:500;color:var(--coral-deep)}
+.principle p{margin-top:14px;font-size:15.5px;color:var(--ink-60);line-height:1.6}
+.principle p strong{color:var(--ink)}
+.voicewords{padding:36px 34px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.voicewords .w{display:flex;justify-content:space-between;align-items:center;font-size:16.5px;font-weight:600}
+.voicewords .yes{color:var(--palm)} .voicewords .no{color:var(--coral-deep);text-decoration:line-through;text-decoration-thickness:1.5px}
+.voicewords small{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-60)}
+.texture-panel{padding:34px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+.tok{display:flex;align-items:center;justify-content:space-between;background:var(--paper);border:2px solid var(--ink);border-radius:12px;padding:14px 18px;box-shadow:3px 4px 0 var(--ink)}
+.tok .t{font-size:14px;font-weight:600}
+.tok code{font-family:var(--mono);font-size:12.5px;color:var(--coral-deep)}
+.marquee-demo{overflow:hidden;background:var(--coral-deep);color:var(--paper);border:2.5px solid var(--ink);border-radius:12px;padding:12px 0}
+.marquee-demo .mt{display:flex;gap:2rem;width:max-content;animation:scroll 18s linear infinite;font-family:var(--display);font-weight:700;font-size:19px;white-space:nowrap}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.rhyme{padding:38px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.rhyme .line{display:flex;gap:14px;align-items:baseline;font-family:var(--display);font-style:italic;font-size:22px}
+.rhyme .line b{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--coral-deep);letter-spacing:.1em;flex:none}
+.rhyme .line span{color:var(--ink-60)}
+
+/* ============ BOARD 6 — applications ============ */
+.apps-grid{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:1fr 1fr;gap:22px;margin-top:26px;height:770px}
+.browser{padding:34px 36px 28px;display:flex;flex-direction:column}
+.browserbar{display:flex;gap:8px;align-items:center;margin-bottom:16px}
+.browserbar .dot{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--ink-60)}
+.browserbar .url{margin-left:12px;flex:1;background:var(--paper);border:1.5px solid var(--ink-15);border-radius:8px;
+  font-family:var(--mono);font-size:12px;padding:6px 12px;color:var(--ink-60)}
+.hero-mock{flex:1;background:var(--sand);border:2px solid var(--ink);border-radius:14px;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;padding:40px}
+.hero-mock .mini-sun{position:absolute;top:-40px;right:-40px;width:150px;height:150px;border-radius:50%;background:var(--gold);border:2px solid var(--ink)}
+.hero-mock h1{font-family:var(--display);font-weight:600;font-size:44px;line-height:1.02;letter-spacing:-.02em;max-width:12ch}
+.hero-mock h1 .hl{background:var(--gold);padding:0 .15em;border-radius:.15em;box-shadow:2px 3px 0 var(--ink);font-style:italic;display:inline-block;transform:rotate(-1.5deg)}
+.hero-mock p{margin-top:14px;color:var(--ink-60);font-size:15px;max-width:44ch}
+.hero-mock .btn{margin-top:20px;align-self:flex-start;background:var(--coral);border:2px solid var(--ink);border-radius:999px;
+  padding:10px 22px;font-weight:700;font-size:14px;box-shadow:3px 4px 0 var(--ink)}
+.card-mock-wrap{padding:30px;display:flex;align-items:center;justify-content:center;gap:22px}
+.cmock{width:330px;height:190px;border-radius:12px;position:relative;overflow:hidden;flex:none;box-shadow:0 10px 26px rgba(0,0,0,.25)}
+.cmock .front{background:var(--sand);border:1.5px solid var(--ink);width:100%;height:100%;position:relative;padding:20px}
+.cmock .front .nm{font-family:var(--display);font-weight:800;font-size:24px;margin-top:14px}
+.cmock .front .rl{font-size:8.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);margin-top:5px}
+.cmock .front .em{font-size:11px;font-weight:700;margin-top:16px}
+.cmock .front .bmini{position:absolute;top:16px;left:20px;font-family:var(--display);font-weight:800;font-size:13px}
+.cmock .back{background:var(--ink);width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.cmock .back .q{font-family:var(--display);font-style:italic;color:var(--sand);font-size:15px}
+.cmock .back .herd{display:flex;gap:7px}
+.cmock .back .herd svg{width:16px;height:15px}
+.og-wrap{padding:26px;display:grid;place-items:center}
+.og-mock{width:100%;max-width:560px;aspect-ratio:1200/630;background:var(--sand);border:1.5px solid var(--ink);border-radius:10px;
+  position:relative;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.25)}
+.og-mock .osun{position:absolute;top:-46px;right:-46px;width:140px;height:140px;border-radius:50%;background:var(--gold);border:2px solid var(--ink)}
+.og-mock .ok{position:absolute;left:34px;top:56px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  border:2px solid var(--ink);background:var(--paper);border-radius:999px;padding:7px 14px}
+.og-mock .on{position:absolute;left:34px;top:104px;font-family:var(--display);font-weight:800;font-size:52px;letter-spacing:-.02em}
+.og-mock .on em{font-style:italic;font-weight:500;color:var(--coral-deep)}
+.sticker-wrap{display:flex;align-items:center;justify-content:space-around;gap:8px}
+.sticker-wrap svg{filter:drop-shadow(3px 4px 0 var(--ink))}
+</style>
+</head>
+<body>
+
+<!-- shared pig -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pig" viewBox="0 0 64 56">
+    <path d="M13 20 L8 6 L24 13 Z" fill="var(--paper,#FDFAF3)"/>
+    <path d="M51 20 L56 6 L40 13 Z" fill="var(--paper,#FDFAF3)"/>
+    <rect x="4" y="14" width="56" height="38" rx="19" fill="var(--paper,#FDFAF3)"/>
+    <ellipse cx="32" cy="35" rx="12" ry="9" fill="currentColor" opacity=".55"/>
+    <circle cx="27.5" cy="35" r="2.1" fill="#26201B"/>
+    <circle cx="36.5" cy="35" r="2.1" fill="#26201B"/>
+    <circle cx="22" cy="26" r="2.8" fill="#26201B"/>
+    <circle cx="42" cy="26" r="2.8" fill="#26201B"/>
+  </symbol>
+  <symbol id="tilemark" viewBox="0 0 64 64">
+    <rect width="64" height="64" rx="14" fill="#EA6247"/>
+    <g transform="translate(0,4)">
+      <path d="M14 18 L10 6 L24 12 Z" fill="#FDFAF3"/>
+      <path d="M50 18 L54 6 L40 12 Z" fill="#FDFAF3"/>
+      <rect x="8" y="14" width="48" height="34" rx="17" fill="#FDFAF3"/>
+      <ellipse cx="32" cy="33" rx="11" ry="8" fill="#EA6247"/>
+      <circle cx="28" cy="33" r="2" fill="#26201B"/>
+      <circle cx="36" cy="33" r="2" fill="#26201B"/>
+      <circle cx="23" cy="24" r="2.6" fill="#26201B"/>
+      <circle cx="41" cy="24" r="2.6" fill="#26201B"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ══════════ BOARD 1 · COVER ══════════ -->
+<section class="board" id="b1">
+  <div class="deckhead"><span>Eight Piggies</span><span>Brand Kit · v1.0</span><span>August 2026</span></div>
+  <div class="cover">
+    <div class="cover-center">
+      <div class="cover-tile">
+        <svg width="190" height="190"><use href="#tilemark"/></svg>
+      </div>
+      <div>
+        <div class="cover-name">Eight<br><em>Piggies</em></div>
+        <p class="cover-sub">Identity system for a two-founder tech &amp; AI consultancy in Barbados. Warm riso-print editorial — ink outlines, offset shadows, one memorable pig.</p>
+        <span class="cover-tag">“This little piggy went to production.”</span>
+      </div>
+    </div>
+    <div class="cover-pigs">
+      <svg style="color:#EA6247"><use href="#pig"/></svg>
+      <svg style="color:#1C6E9B"><use href="#pig"/></svg>
+      <svg style="color:#EDB13E"><use href="#pig"/></svg>
+      <svg style="color:#2E7A54"><use href="#pig"/></svg>
+      <svg style="color:#BF3F2A"><use href="#pig"/></svg>
+      <svg style="color:#8A6BB8"><use href="#pig"/></svg>
+      <svg style="color:#1C6E9B"><use href="#pig"/></svg>
+      <svg style="color:#EA6247"><use href="#pig"/></svg>
+    </div>
+  </div>
+  <div class="deckfoot"><span>01 / Cover</span><span>eightpiggies.com</span><span>Barbados · 246</span></div>
+  <div class="grain"></div>
+</section>
+
+<!-- ══════════ BOARD 2 · LOGO ══════════ -->
+<section class="board" id="b2">
+  <div class="deckhead"><span>Eight Piggies</span><span>Brand Kit · v1.0</span></div>
+  <div class="btitle">02 · <b>Logo system</b></div>
+
+  <div class="logo-grid">
+    <div class="panel logo-main"><span class="plabel">Primary mark</span>
+      <svg class="bigmark"><use href="#tilemark"/></svg>
+    </div>
+
+    <div class="panel construction"><span class="plabel">Construction</span>
+      <div class="inner">
+        <div class="gridlines"></div>
+        <svg viewBox="0 0 64 64" style="position:absolute;inset:0;width:100%;height:100%"><use href="#tilemark"/></svg>
+      </div>
+    </div>
+
+    <div class="panel clearspace"><span class="plabel">Clear space</span>
+      <div class="cs">
+        <svg width="150" height="150"><use href="#tilemark"/></svg>
+      </div>
+    </div>
+
+    <div class="panel dark mono-variants"><span class="plabel">Reproduction</span>
+      <div class="v">
+        <div class="chip" style="background:var(--sand)"><svg width="86" height="86" style="color:var(--ink)"><use href="#pig"/></svg></div>
+        <small>Ink on sand</small>
+      </div>
+      <div class="v">
+        <div class="chip" style="background:var(--ink)"><svg width="86" height="86" style="color:var(--gold)"><use href="#pig"/></svg></div>
+        <small>Gold on ink</small>
+      </div>
+      <div class="v">
+        <div class="chip" style="background:var(--coral)"><svg width="86" height="86" style="color:var(--coral)"><use href="#pig"/></svg></div>
+        <small>Coral self</small>
+      </div>
+    </div>
+
+    <div class="panel dark lockups"><span class="plabel">Lockups</span>
+      <div class="lw">Eight <em>Piggies</em></div>
+      <div class="stack">
+        <div style="display:flex;align-items:center;gap:12px">
+          <svg width="44" height="44"><use href="#tilemark"/></svg>
+          <span class="lw" style="font-size:30px">Eight <em>Piggies</em></span>
+        </div>
+        <small>Horizontal · stacked</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="deckfoot"><span>02 / Logo</span><span>Mark: rounded tile 64×64 · snout ellipse 55% · min size 24px</span><span>eightpiggies.com</span></div>
+  <div class="grain"></div>
+</section>
+
+<!-- ══════════ BOARD 3 · COLOR ══════════ -->
+<section class="board" id="b3">
+  <div class="deckhead"><span>Eight Piggies</span><span>Brand Kit · v1.0</span></div>
+  <div class="btitle">03 · <b>Colour</b></div>
+
+  <div class="color-grid">
+    <div class="swatch" style="background:#F6EEDF;color:#26201B">
+      <div class="meta"><b>Sand</b>#F6EEDF · 246 238 223<br>CMYK 0·4·12·4 — page base</div>
+    </div>
+    <div class="swatch" style="background:#FDFAF3;color:#26201B">
+      <div class="meta"><b>Paper</b>#FDFAF3 · 253 250 243<br>CMYK 0·1·5·0 — cards, pig body</div>
+    </div>
+    <div class="swatch" style="background:#26201B;color:#F6EEDF">
+      <div class="meta"><b>Ink</b>#26201B · 38 32 27<br>CMYK 0·14·22·85 — text, borders, shadows</div>
+    </div>
+    <div class="swatch" style="background:#EA6247;color:#FDFAF3">
+      <div class="meta"><b>Coral</b>#EA6247 · 234 98 71<br>CMYK 0·63·65·8 — primary accent, CTAs</div>
+    </div>
+    <div class="swatch" style="background:#BF3F2A;color:#FDFAF3">
+      <div class="meta"><b>Coral Deep</b>#BF3F2A · 191 63 42<br>CMYK 0·70·74·25 — hero italics, bands</div>
+    </div>
+    <div class="swatch" style="background:#EDB13E;color:#26201B">
+      <div class="meta"><b>Gold</b>#EDB13E · 237 177 62<br>CMYK 5·28·78·7 — sun, highlights, awards</div>
+    </div>
+    <div class="swatch" style="background:#1C6E9B;color:#FDFAF3">
+      <div class="meta"><b>Sea</b>#1C6E9B · 28 110 155<br>CMYK 82·46·8·15 — links, Matt</div>
+    </div>
+    <div class="swatch" style="background:#2E7A54;color:#FDFAF3">
+      <div class="meta"><b>Palm</b>#2E7A54 · 46 122 84<br>CMYK 70·25·75·25 — live dots, confirm</div>
+    </div>
+    <div class="swatch" style="background:#F3C8BF;color:#26201B">
+      <div class="meta"><b>Blush</b>#F3C8BF · 243 200 191<br>CMYK 0·22·23·5 — soft fills, avatars</div>
+    </div>
+    <div class="swatch" style="background:#8A6BB8;color:#FDFAF3">
+      <div class="meta"><b>Grape</b>#8A6BB8 · 138 107 184<br>CMYK 45·48·0·0 — the eighth piggy</div>
+    </div>
+
+    <div class="ratio-bar">
+      <div style="flex:60;background:#F6EEDF;color:#26201B">SAND 60</div>
+      <div style="flex:16;background:#26201B;color:#F6EEDF">INK 16</div>
+      <div style="flex:12;background:#EA6247;color:#FDFAF3">CORAL 12</div>
+      <div style="flex:7;background:#EDB13E;color:#26201B">GOLD 7</div>
+      <div style="flex:5;background:#1C6E9B;color:#FDFAF3">+5</div>
+    </div>
+  </div>
+
+  <div class="deckfoot"><span>03 / Colour</span><span>Contrast: ink on sand 12.8:1 · coral fills carry ink text only · AA verified</span><span>eightpiggies.com</span></div>
+  <div class="grain"></div>
+</section>
+
+<!-- ══════════ BOARD 4 · TYPE ══════════ -->
+<section class="board" id="b4">
+  <div class="deckhead"><span>Eight Piggies</span><span>Brand Kit · v1.0</span></div>
+  <div class="btitle">04 · <b>Typography</b></div>
+
+  <div class="type-grid">
+    <div class="panel spec-display"><span class="plabel">Display — Fraunces</span>
+      <div class="abc">ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ</div>
+      <div class="ital">Went to production — 1234567890</div>
+      <div class="fname"><b>Fraunces</b><span>Soft serif · opsz 9–144 · 300–900 · italics for wit</span></div>
+    </div>
+
+    <div class="panel spec-body"><span class="plabel">Body — Instrument Sans</span>
+      <div class="abc">abcdefghilmnoprstuvz—aeiou</div>
+      <div class="num">0123456789 → @ # % &amp;</div>
+      <div class="fname" style="margin-top:auto;padding-top:24px;display:flex;justify-content:space-between;border-top:2px solid var(--ink-15)">
+        <b>Instrument Sans</b><span style="font-family:var(--mono);font-size:12px;color:var(--ink-60)">400–700 · workhorse</span>
+      </div>
+    </div>
+
+    <div class="panel hier"><span class="plabel">Hierarchy</span>
+      <div class="row"><span class="tag">H1 · Fraunces 650</span><h1>This little piggy went to <em style="font-style:italic">production.</em></h1></div>
+      <div class="row"><span class="tag">H2 · Fraunces 650</span><h2>Eight piggies. One consultancy.</h2></div>
+      <div class="row"><span class="tag">Lede · Sans 600</span><span class="lede">Live systems, not slide decks — we ship nationally.</span></div>
+      <div class="row"><span class="tag">Body · Sans 400</span><span class="body">Applied AI, embedded engineering and search strategy from Barbados.</span></div>
+      <div class="row"><span class="tag">Label · Mono</span><span style="font-family:var(--mono);font-size:13px;letter-spacing:.18em;color:var(--coral-deep)">EYEBROW · UPPERCASE</span></div>
+    </div>
+
+    <div class="panel rules"><span class="plabel">Rules</span>
+      <div class="r"><span class="n">1</span><span>Headlines set in <strong>Fraunces</strong>, tight-tracked (−2%), opsz high. One italic phrase max per headline — that's the wink.</span></div>
+      <div class="r"><span class="n">2</span><span>Everything functional is <strong>Instrument Sans</strong>. Labels and metadata switch to <strong>JetBrains Mono</strong>, uppercase, +18% tracking.</span></div>
+      <div class="r"><span class="n">3</span><span>Never set body copy in Fraunces. Never set headlines in Sans. The pairing only works because each keeps its job.</span></div>
+    </div>
+  </div>
+
+  <div class="deckfoot"><span>04 / Type</span><span>Google Fonts: Fraunces · Instrument Sans · JetBrains Mono</span><span>eightpiggies.com</span></div>
+  <div class="grain"></div>
+</section>
+
+<!-- ══════════ BOARD 5 · VOICE & LANGUAGE ══════════ -->
+<section class="board" id="b5">
+  <div class="deckhead"><span>Eight Piggies</span><span>Brand Kit · v1.0</span></div>
+  <div class="btitle">05 · <b>Voice &amp; graphic language</b></div>
+
+  <div class="voice-grid">
+    <div class="panel principle"><span class="plabel">Principle 01</span>
+      <div class="pn">LIVE SYSTEMS</div>
+      <h3>Not slide <em>decks.</em></h3>
+      <p>Every claim points at something running. <strong>Proof over promise</strong> — if it isn't in production, it doesn't go in the copy.</p>
+    </div>
+
+    <div class="panel principle"><span class="plabel">Principle 02</span>
+      <div class="pn">SERIOUS / UNSERIOUS</div>
+      <h3>Piggy name, <em>engineer's</em> hands.</h3>
+      <p>The name is a nursery rhyme; the work is national infrastructure. <strong>Playful surface, rigorous underneath</strong> — never the reverse.</p>
+    </div>
+
+    <div class="panel principle"><span class="plabel">Principle 03</span>
+      <div class="pn">CARIBBEAN GROUND</div>
+      <h3>Proven in <em>Barbados.</em></h3>
+      <p>Small island, national scale. Bajan phrasing stays — <strong>Yuh Hear Dem, We Outside 246</strong> — grounded, never touristy.</p>
+    </div>
+
+    <div class="panel voicewords"><span class="plabel">Word choices</span>
+      <div class="w"><span class="yes">ship</span><span class="no">deliverables</span></div>
+      <div class="w"><span class="yes">live</span><span class="no">cutting-edge</span></div>
+      <div class="w"><span class="yes">honest audit</span><span class="no">synergy</span></div>
+      <div class="w"><span class="yes">oink</span><span class="no">leveraging</span></div>
+      <small>Left: ours · Right: banned</small>
+    </div>
+
+    <div class="panel texture-panel"><span class="plabel">Texture tokens</span>
+      <div class="tok"><span class="t">Offset shadow</span><code>5px 6px 0 ink</code></div>
+      <div class="tok"><span class="t">Border</span><code>2.5px solid ink</code></div>
+      <div class="tok"><span class="t">Radius</span><code>16 / 22px</code></div>
+      <div class="tok"><span class="t">Grain overlay</span><code>5% multiply</code></div>
+      <div class="marquee-demo"><div class="mt">
+        <span>WENT TO MARKET 🐽 STAYED HOME 🐽 HAD ROAST BEEF 🐽 SHIPPED PRODUCTION AI 🐽 WEE-WEE-WEE 🐽&nbsp;</span>
+        <span>WENT TO MARKET 🐽 STAYED HOME 🐽 HAD ROAST BEEF 🐽 SHIPPED PRODUCTION AI 🐽 WEE-WEE-WEE 🐽&nbsp;</span>
+      </div></div>
+    </div>
+
+    <div class="panel rhyme"><span class="plabel">The rhyme, as system</span>
+      <div class="line"><b>i</b><span>went to market → go-to-market &amp; SEO</span></div>
+      <div class="line"><b>ii</b><span>stayed home → embedded engineering</span></div>
+      <div class="line"><b>iii</b><span>had roast beef → applied AI &amp; agents</span></div>
+      <div class="line"><b>iv</b><span>had none → the honest audit</span></div>
+      <div class="line"><b>v–viii</b><span>…each service earns its line</span></div>
+    </div>
+  </div>
+
+  <div class="deckfoot"><span>05 / Voice</span><span>One “oink” per page, maximum</span><span>eightpiggies.com</span></div>
+  <div class="grain"></div>
+</section>
+
+<!-- ══════════ BOARD 6 · APPLICATIONS ══════════ -->
+<section class="board" id="b6">
+  <div class="deckhead"><span>Eight Piggies</span><span>Brand Kit · v1.0</span></div>
+  <div class="btitle">06 · <b>Applications</b></div>
+
+  <div class="apps-grid">
+    <div class="panel browser" style="grid-row:1/3"><span class="plabel">Web · eightpiggies.com</span>
+      <div class="browserbar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="url">https://eightpiggies.com</span>
+      </div>
+      <div class="hero-mock">
+        <div class="mini-sun"></div>
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral-deep);margin-bottom:14px">● Tech &amp; AI consulting · Barbados, 246</div>
+        <h1>This little piggy went to <span class="hl">production.</span></h1>
+        <p>National-scale AI, enterprise SEO, and engineering that ships — from two founders in Barbados.</p>
+        <span class="btn">Start a project →</span>
+        <svg style="position:absolute;bottom:26px;right:120px;width:74px;height:68px;color:var(--coral);transform:rotate(10deg)"><use href="#pig"/></svg>
+      </div>
+    </div>
+
+    <div class="panel card-mock-wrap"><span class="plabel">Business card</span>
+      <div class="cmock">
+        <div class="front">
+          <div class="bmini">Eight <em style="font-style:italic;font-weight:500">Piggies</em></div>
+          <div class="nm">Matt Hamilton</div>
+          <div class="rl">Co-founder — The Builder</div>
+          <div class="em">hello@eightpiggies.com</div>
+        </div>
+      </div>
+      <div class="cmock">
+        <div class="back">
+          <div class="herd">
+            <svg style="color:#EA6247"><use href="#pig"/></svg><svg style="color:#1C6E9B"><use href="#pig"/></svg>
+            <svg style="color:#EDB13E"><use href="#pig"/></svg><svg style="color:#2E7A54"><use href="#pig"/></svg>
+            <svg style="color:#BF3F2A"><use href="#pig"/></svg><svg style="color:#8A6BB8"><use href="#pig"/></svg>
+            <svg style="color:#1C6E9B"><use href="#pig"/></svg><svg style="color:#EA6247"><use href="#pig"/></svg>
+          </div>
+          <div class="q">“This little piggy went to production.”</div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--gold)">EIGHTPIGGIES.COM — BARBADOS, 246</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel og-wrap"><span class="plabel">Social · OG image</span>
+      <div class="og-mock">
+        <div class="osun"></div>
+        <div class="ok">Tech &amp; AI consulting · Barbados</div>
+        <div class="on">Eight <em>Piggies</em></div>
+        <div style="position:absolute;left:34px;top:182px;font-size:15px;font-weight:600;color:var(--ink-60)">National-scale AI. Enterprise SEO.<br>Engineering that ships.</div>
+        <div style="position:absolute;left:34px;bottom:24px;font-weight:700;font-size:13px">Matt Hamilton <span style="color:var(--coral-deep)">×</span> Martin MacDonald</div>
+        <div style="position:absolute;right:34px;bottom:24px;font-family:var(--display);font-style:italic;font-size:14px">eightpiggies.com</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deckfoot"><span>06 / Applications</span><span>Web · print · social · sticker</span><span>eightpiggies.com — end of kit · oink.</span></div>
+  <div class="grain"></div>
+</section>
+
+</body>
+</html>
