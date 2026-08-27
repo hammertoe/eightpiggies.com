@@ -249,6 +249,7 @@ img,svg{display:block;max-width:100%}
 
 /* ————————————————— hero ————————————————— */
 .hero{position:relative;padding:clamp(3.5rem,8vw,6.5rem) 0 clamp(3rem,6vw,5rem);overflow:hidden}
+.hero .wrap{position:relative;z-index:2}
 .sun{
   position:absolute;top:-140px;right:-140px;width:460px;height:460px;border-radius:50%;
   background:var(--gold);border:2.5px solid var(--ink);
@@ -268,6 +269,10 @@ img,svg{display:block;max-width:100%}
 .fp-2 .pig-svg{width:82px;height:82px}
 @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -16px}}
 @media(max-width:900px){.fp-1{right:-20px;width:90px}.fp-2{display:none}}
+@media(max-width:700px){
+  .sun{width:240px;height:240px;top:-110px;right:-110px}
+  .sun::before{display:none}
+}
 
 .kicker{
   display:inline-flex;align-items:center;gap:.55rem;
