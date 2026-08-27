@@ -21,7 +21,7 @@ Contact: hello@eightpiggies.com
 ## Founders
 
 - [Matt Hamilton](https://dharach.com/): co-founder. ex-IBM, Ripple, Protocol Labs, Arbitrum Foundation. Builder of national-scale civic AI systems in Barbados. 2025 BLP Innovation Award. Also at [hammertoe.io](https://hammertoe.io/) and [@HammerToe](https://twitter.com/HammerToe)
-- [Martin MacDonald](https://martinmacdonald.com/): co-founder. Led search for Expedia, Orbitz and Omnicom. Founder of [MOGmedia](https://mog.media/) and [Metricular](https://metricular.net/). Also built [SendMy.ai](https://sendmy.ai/) and [CuratedContent](https://curatedcontent.org/). Runs BarbadosSEO. [@searchmartin](https://twitter.com/searchmartin)
+- [Martin MacDonald](https://martinmacdonald.com/): co-founder. Software founder and enterprise SEO operator, 25+ years in search. Led SEO and digital marketing across Expedia, Orbitz, Omnicom and Seatwave. Founder of [MOGmedia](https://mog.media/), [Metricular](https://metricular.net/), [Curated Content](https://curatedcontent.org/), [BarbadosSEO](https://barbadosseo.com/) and [SendMy.ai](https://sendmy.ai/). [@searchmartin](https://x.com/searchmartin)
 
 ## Live systems (proof of work)
 
@@ -32,7 +32,7 @@ Contact: hello@eightpiggies.com
 - [Untangle / Talk to Tali](https://untangleapp.ai/) — shame-free ADHD task manager in WhatsApp
 - [Metricular](https://metricular.net/) — SEO & GEO platform: 83M+ URLs crawled, 350+ issue types
 - [SendMy.ai](https://sendmy.ai/) — AI meeting attendance with visible, consent-first bots
-- [CuratedContent](https://curatedcontent.org/) — turning distributed media into structured, evidence-backed knowledge
+- [CuratedContent](https://curatedcontent.org/) — scaled content production built on structured inputs, repeatable workflows and measurable search demand
 
 ## Links
 

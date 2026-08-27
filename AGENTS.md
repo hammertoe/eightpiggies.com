@@ -50,7 +50,7 @@ Positioning: "Live systems, not slide decks." The name riffs on the nursery rhym
 
 - Scroll reveals: `data-reveal` attribute + optional `--d` delay; the IntersectionObserver in the inline script picks them up.
 - New brand graphics: build as HTML/SVG, render via headless Chrome (screenshots at device scale 2, or `--print-to-pdf` for print). Verify output pixels programmatically when possible (this agent can't view images).
-- Founder facts, stats and live-project links come from the founders' real sites (dharach.com, hammertoe.io, martinmacdonald.com, mog.media, metricular.net, sendmy.ai, curatedcontent.org) — check before changing claims.
+- Founder facts, stats and live-project links come from the founders' real sites (dharach.com, hammertoe.io, martinmacdonald.com, mog.media, metricular.net, sendmy.ai, curatedcontent.org, barbadosseo.com) — check before changing claims. Martin's positioning (as of Aug 2026): "software founder & enterprise SEO operator", four companies = MOGmedia, Metricular, Curated Content, BarbadosSEO.
 - Contact address is `hello@eightpiggies.com`. Location references: Barbados, 246, AST (UTC−4, no DST).
 
 ## Git
